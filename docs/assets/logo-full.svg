@@ -1,0 +1,35 @@
+<svg width="640" height="200" viewBox="0 0 640 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="O&amp;J Company logo">
+  <defs>
+    <linearGradient id="ojGradF" x1="40" y1="40" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#6ea8fe"/>
+    </linearGradient>
+    <linearGradient id="ojGradFsoft" x1="110" y1="55" x2="110" y2="165" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8a6dff"/>
+      <stop offset="1" stop-color="#6ea8fe"/>
+    </linearGradient>
+    <linearGradient id="ojWord" x1="220" y1="80" x2="560" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#6ea8fe"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== symbol (scaled-down version of logo-symbol) ===== -->
+  <g transform="translate(28,28) scale(0.28)">
+    <!-- O : open ring -->
+    <path d="M 360 132 A 156 156 0 1 1 256 100"
+          fill="none" stroke="url(#ojGradF)" stroke-width="40" stroke-linecap="round"/>
+    <!-- node dot -->
+    <circle cx="372" cy="150" r="22" fill="url(#ojGradFsoft)"/>
+    <!-- J : nested stem + hook -->
+    <path d="M 296 160 L 296 300 A 54 54 0 0 1 188 300"
+          fill="none" stroke="url(#ojGradFsoft)" stroke-width="40" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== wordmark ===== -->
+  <text x="176" y="115" font-family="Pretendard,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Apple SD Gothic Neo',sans-serif"
+        font-size="62" font-weight="800" letter-spacing="-1" fill="#e8ecf5">O<tspan fill="url(#ojWord)">&amp;</tspan>J</text>
+
+  <text x="178" y="150" font-family="Pretendard,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
+        font-size="18" font-weight="600" letter-spacing="3.5" fill="#9aa3b8">COMPANY</text>
+</svg>

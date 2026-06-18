@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O&amp;J — 브랜드 가이드</title>
+<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+<style>
+  :root{
+    --bg:#0b0d12; --panel:#13161f; --panel2:#191d29; --line:#262b3a;
+    --ink:#e8ecf5; --sub:#9aa3b8; --mut:#6b7488;
+    --acc:#6ea8fe; --acc2:#7c5cff; --gold:#ffc24b; --green:#3ddc97; --red:#ff6b6b;
+    --grad:linear-gradient(135deg,#7c5cff,#6ea8fe);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  a{color:var(--acc);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{padding:20px 0;border-bottom:1px solid var(--line)}
+  .back{font-size:14px;color:var(--sub)}
+  .back:hover{color:var(--ink)}
+
+  header.hero{padding:64px 0 44px;border-bottom:1px solid var(--line)}
+  .badge{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--acc);
+    border:1px solid var(--line);background:var(--panel);padding:6px 14px;border-radius:99px;margin-bottom:24px}
+  .hero h1{font-size:clamp(34px,6vw,54px);font-weight:800;letter-spacing:-1.5px;line-height:1.1}
+  .hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:18px;color:var(--sub);margin-top:18px;max-width:680px}
+
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+  .eyebrow{color:var(--acc2);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+  h2{font-size:26px;font-weight:800;letter-spacing:-.5px;margin:8px 0 6px}
+  .section-sub{color:var(--sub);font-size:15px;max-width:720px;margin-bottom:28px}
+
+  /* logo preview swatches: dark + light side by side */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.duo{grid-template-columns:1fr}}
+  .swatch{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .swatch .stage{display:grid;place-items:center;padding:40px 24px;min-height:160px}
+  .stage.dark{background:var(--bg)}
+  .stage.light{background:#f3f5fb}
+  .stage img{max-width:100%;height:auto;display:block}
+  .swatch .cap{font-size:12px;color:var(--mut);padding:10px 14px;border-top:1px solid var(--line);background:var(--panel);
+    display:flex;justify-content:space-between;align-items:center}
+  .swatch .cap b{color:var(--sub);font-weight:600}
+
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:760px){.g3{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.g3{grid-template-columns:1fr}}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+
+  /* color palette */
+  .palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .chip{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .chip .col{height:78px}
+  .chip .meta{padding:11px 13px}
+  .chip .nm{font-size:13.5px;font-weight:700;color:var(--ink)}
+  .chip .hex{font-size:12.5px;color:var(--sub);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:2px}
+  .chip .use{font-size:11.5px;color:var(--mut);margin-top:4px}
+
+  /* type specimens */
+  .type-row{padding:16px 0;border-bottom:1px solid var(--line)}
+  .type-row:last-child{border-bottom:none}
+  .type-row .lbl{font-size:12px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+  .t-h1{font-size:46px;font-weight:800;letter-spacing:-1.5px}
+  .t-h2{font-size:28px;font-weight:800;letter-spacing:-.5px}
+  .t-body{font-size:16px;color:var(--sub)}
+  .t-eyebrow{color:var(--acc2);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* do / dont */
+  ul.clean{list-style:none}
+  ul.clean li{position:relative;padding-left:26px;margin:9px 0;color:var(--sub);font-size:14.5px}
+  ul.check li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+  ul.cross li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:700}
+
+  /* clearspace illustration */
+  .clearspace{display:grid;place-items:center;padding:30px;background:var(--bg);border:1px solid var(--line);border-radius:16px}
+  .csbox{position:relative;padding:48px;outline:1px dashed var(--acc2);outline-offset:-1px;border-radius:8px}
+  .csbox::before,.csbox::after{content:"";position:absolute;background:rgba(124,92,255,.14)}
+  .cs-h{position:absolute;left:0;right:0;height:48px;background:rgba(124,92,255,.10)}
+  .cs-h.t{top:0}.cs-h.b{bottom:0}
+  .cs-v{position:absolute;top:0;bottom:0;width:48px;background:rgba(124,92,255,.10)}
+  .cs-v.l{left:0}.cs-v.r{right:0}
+  .cs-label{font-size:11.5px;color:var(--acc2);text-align:center;margin-top:14px;letter-spacing:.04em}
+
+  pre{background:#0e1117;border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:10px;
+    padding:14px 16px;margin:10px 0;font-size:13px;color:var(--sub);overflow-x:auto;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.7}
+  pre .c{color:var(--mut)}
+  code.inline{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink)}
+
+  .callout{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin-top:18px;font-size:14px;color:var(--sub)}
+  .callout b{color:var(--ink)}
+
+  footer{padding:46px 0 70px;color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap"><a class="back" href="./index.html">← 플레이북으로 돌아가기</a></div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">BRAND SYSTEM v1</span>
+    <h1>O<span class="g">&amp;</span>J 브랜드 가이드</h1>
+    <p class="lead">오정빈 &amp; 정해찬 — AI로 모든 걸 세팅해주는 2인 스튜디오.
+      로고, 컬러, 타이포, 사용 규칙을 한 곳에. 모든 자산은 SVG라 무한 확대되고, PNG로도 export 됩니다.</p>
+  </div>
+</header>
+
+<!-- ===================== SYMBOL ===================== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">01 · Symbol</p>
+    <h2>심볼 마크</h2>
+    <p class="section-sub">열린 링(<b style="color:var(--ink)">O</b>)은 "끝까지 맡아 돌리는 풀 사이클", 링 틈의 노드 점은 "연결 · 자동화"의 매듭,
+      그리고 그 안에 들어앉은 후크(<b style="color:var(--ink)">J</b>)가 O&amp;J 모노그램을 완성합니다.</p>
+    <div class="duo">
+      <div class="swatch">
+        <div class="stage dark"><img src="./assets/logo-symbol.svg" alt="O&amp;J symbol on dark" width="220"></div>
+        <div class="cap"><b>다크 배경</b><span>logo-symbol.svg</span></div>
+      </div>
+      <div class="swatch">
+        <div class="stage light"><img src="./assets/logo-symbol.svg" alt="O&amp;J symbol on light" width="220"></div>
+        <div class="cap"><b>라이트 배경</b><span>그라데이션 동일</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOCKUPS ===================== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">02 · Lockups</p>
+    <h2>로고 조합 (가로형)</h2>
+    <p class="section-sub">심볼 + 워드마크 기본 조합. 컬러 버전은 밝은 글자라 <b style="color:var(--ink)">다크 배경</b>이 기본입니다.
+      밝은 배경/단색 인쇄에는 모노 버전을 사용하세요.</p>
+    <div class="duo">
+      <div class="swatch">
+        <div class="stage dark"><img src="./assets/logo-full.svg" alt="O&amp;J full logo on dark" width="320"></div>
+        <div class="cap"><b>풀 로고 · 다크 (기본)</b><span>logo-full.svg</span></div>
+      </div>
+      <div class="swatch">
+        <div class="stage light"><img src="./assets/logo-mono.svg" alt="O&amp;J mono logo on light" width="320" style="filter:invert(1)"></div>
+        <div class="cap"><b>모노 · 라이트 적용 예</b><span>logo-mono.svg (반전)</span></div>
+      </div>
+    </div>
+    <div class="duo" style="margin-top:16px">
+      <div class="swatch">
+        <div class="stage dark"><img src="./assets/logo-mono.svg" alt="O&amp;J mono logo on dark" width="320"></div>
+        <div class="cap"><b>모노(화이트) · 다크</b><span>logo-mono.svg</span></div>
+      </div>
+      <div class="swatch">
+        <div class="stage light" style="background:#191d29"><img src="./assets/favicon.svg" alt="O&amp;J favicon" width="84"></div>
+        <div class="cap"><b>파비콘 / 앱 아이콘</b><span>favicon.svg</span></div>
+      </div>
+    </div>
+    <div class="callout">
+      <b>참고 ·</b> <code class="inline">logo-mono.svg</code> 는 순수 흰색이라 밝은 배경에 그대로 쓰면 안 보입니다.
+      위 "라이트 적용 예"는 <code class="inline">filter:invert(1)</code> 로 검정 전환한 모습입니다. 인쇄 시엔 흰색/검정 중 배경 대비가 큰 쪽을 선택하세요.
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COLOR ===================== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">03 · Color</p>
+    <h2>컬러 팔레트</h2>
+    <p class="section-sub">브랜드 그라데이션은 보라 → 파랑 <code class="inline">linear-gradient(135deg,#7c5cff,#6ea8fe)</code>.
+      배경은 깊은 잉크 톤, 텍스트는 부드러운 화이트.</p>
+
+    <div class="card" style="margin-bottom:18px">
+      <div style="height:64px;border-radius:12px;background:linear-gradient(135deg,#7c5cff,#6ea8fe)"></div>
+      <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:13px;color:var(--sub)">
+        <span style="font-family:ui-monospace,Menlo,monospace">#7C5CFF</span>
+        <span style="color:var(--mut)">Brand Gradient · 135°</span>
+        <span style="font-family:ui-monospace,Menlo,monospace">#6EA8FE</span>
+      </div>
+    </div>
+
+    <div class="palette">
+      <div class="chip"><div class="col" style="background:#7c5cff"></div><div class="meta"><div class="nm">Violet (acc2)</div><div class="hex">#7C5CFF</div><div class="use">강조 · 그라데이션 시작</div></div></div>
+      <div class="chip"><div class="col" style="background:#6ea8fe"></div><div class="meta"><div class="nm">Blue (acc)</div><div class="hex">#6EA8FE</div><div class="use">링크 · 그라데이션 끝</div></div></div>
+      <div class="chip"><div class="col" style="background:#0b0d12"></div><div class="meta"><div class="nm">Ink (bg)</div><div class="hex">#0B0D12</div><div class="use">기본 배경</div></div></div>
+      <div class="chip"><div class="col" style="background:#13161f"></div><div class="meta"><div class="nm">Panel</div><div class="hex">#13161F</div><div class="use">카드 · 패널</div></div></div>
+      <div class="chip"><div class="col" style="background:#191d29"></div><div class="meta"><div class="nm">Panel 2</div><div class="hex">#191D29</div><div class="use">보조 면</div></div></div>
+      <div class="chip"><div class="col" style="background:#262b3a"></div><div class="meta"><div class="nm">Line</div><div class="hex">#262B3A</div><div class="use">테두리 · 구분선</div></div></div>
+      <div class="chip"><div class="col" style="background:#e8ecf5"></div><div class="meta"><div class="nm">Ink Text</div><div class="hex">#E8ECF5</div><div class="use">본문 텍스트</div></div></div>
+      <div class="chip"><div class="col" style="background:#9aa3b8"></div><div class="meta"><div class="nm">Sub</div><div class="hex">#9AA3B8</div><div class="use">보조 텍스트</div></div></div>
+      <div class="chip"><div class="col" style="background:#6b7488"></div><div class="meta"><div class="nm">Muted</div><div class="hex">#6B7488</div><div class="use">캡션 · 비활성</div></div></div>
+      <div class="chip"><div class="col" style="background:#3ddc97"></div><div class="meta"><div class="nm">Green</div><div class="hex">#3DDC97</div><div class="use">성공 · 금액</div></div></div>
+      <div class="chip"><div class="col" style="background:#ffc24b"></div><div class="meta"><div class="nm">Gold</div><div class="hex">#FFC24B</div><div class="use">주의 · 하이라이트</div></div></div>
+      <div class="chip"><div class="col" style="background:#ff6b6b"></div><div class="meta"><div class="nm">Red</div><div class="hex">#FF6B6B</div><div class="use">경고 · 금지</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TYPE ===================== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">04 · Typography</p>
+    <h2>타이포그래피</h2>
+    <p class="section-sub">서체는 <b style="color:var(--ink)">Pretendard</b> 우선, 시스템 산세리프로 폴백.
+      제목은 800 굵게 + 좁은 자간, 본문은 부드러운 회백색.</p>
+    <div class="card">
+      <div class="type-row"><div class="lbl">Eyebrow · 700 · UPPERCASE</div><div class="t-eyebrow">AI Setup Studio</div></div>
+      <div class="type-row"><div class="lbl">H1 · 800 · -1.5 자간</div><div class="t-h1">AI로 <span class="grad-text">전부 세팅</span>합니다</div></div>
+      <div class="type-row"><div class="lbl">H2 · 800 · -0.5 자간</div><div class="t-h2">2인 스튜디오, 풀 사이클</div></div>
+      <div class="type-row"><div class="lbl">Body · 400 · #9AA3B8</div><div class="t-body">로고송부터 사내 LLM 위키, 디스코드 AI 팀 운영까지 — 진입장벽 0, 즉시 가동.</div></div>
+      <div class="type-row"><div class="lbl">Font stack</div><pre style="margin:0">font-family:"Pretendard",-apple-system,BlinkMacSystemFont,
+  "Segoe UI",Roboto,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;</pre></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== USAGE ===================== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">05 · Usage</p>
+    <h2>사용 가이드</h2>
+    <p class="section-sub">최소 여백과 금지 사항. 일관되게 쓸수록 신뢰가 쌓입니다.</p>
+
+    <div class="grid g3">
+      <div class="card" style="grid-column:span 1">
+        <div class="clearspace" style="padding:18px">
+          <div class="csbox">
+            <div class="cs-h t"></div><div class="cs-h b"></div>
+            <div class="cs-v l"></div><div class="cs-v r"></div>
+            <img src="./assets/logo-symbol.svg" width="92" alt="clearspace demo">
+          </div>
+        </div>
+        <div class="cs-label">최소 여백 = 심볼 높이의 1/4 (= "O" 굵기)</div>
+      </div>
+      <div class="card">
+        <p class="eyebrow" style="color:var(--green)">DO — 권장</p>
+        <ul class="clean check" style="margin-top:10px">
+          <li>다크 배경엔 컬러/화이트 로고</li>
+          <li>밝은 배경엔 모노(검정) 또는 잉크 패널 위 컬러</li>
+          <li>최소 크기: 심볼 24px, 풀 로고 너비 120px 이상</li>
+          <li>충분한 여백 확보 (위 가이드)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="eyebrow" style="color:var(--red)">DON'T — 금지</p>
+        <ul class="clean cross" style="margin-top:10px">
+          <li>그라데이션 색·각도 변경</li>
+          <li>로고 비율 왜곡 · 회전</li>
+          <li>저대비 배경(보라/파랑 위 컬러 로고)</li>
+          <li>심볼과 워드마크 임의 재배치</li>
+          <li>그림자·외곽선·효과 추가</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPORT ===================== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">06 · Export</p>
+    <h2>PNG로 export 하는 법</h2>
+    <p class="section-sub">SVG는 벡터라 무한 확대됩니다. 래스터(PNG)가 필요할 때 — 가장 쉬운 순서대로.</p>
+
+    <div class="card" style="margin-bottom:14px">
+      <b style="color:var(--ink)">방법 A · 브라우저 (도구 설치 0)</b>
+      <p style="color:var(--sub);font-size:14px;margin-top:6px">SVG 파일을 브라우저에 드래그해서 열고 → 확대 후 캡처.
+        macOS는 <code class="inline">⌘⇧4</code>(영역) / <code class="inline">⌘⇧5</code>(녹화·고정). 빠르지만 화면 해상도에 묶입니다.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <b style="color:var(--ink)">방법 B · macOS 기본 내장 (qlmanage)</b>
+      <p style="color:var(--sub);font-size:14px;margin-top:6px">추가 설치 없이 고해상도 PNG 생성:</p>
+      <pre><span class="c"># 512px 폭으로 현재 폴더에 PNG 생성</span>
+qlmanage -t -s 512 -o . logo-symbol.svg
+<span class="c"># 결과: ./logo-symbol.svg.png</span></pre>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <b style="color:var(--ink)">방법 C · rsvg / Inkscape (정밀, 권장)</b>
+      <p style="color:var(--sub);font-size:14px;margin-top:6px">정확한 픽셀·투명 배경이 필요할 때. 한 번만 설치:</p>
+      <pre><span class="c"># 설치 (Homebrew)</span>
+brew install librsvg          <span class="c"># rsvg-convert</span>
+brew install --cask inkscape  <span class="c"># 또는 Inkscape</span>
+
+<span class="c"># rsvg-convert — 폭 1024px, 투명 PNG</span>
+rsvg-convert -w 1024 logo-symbol.svg -o logo-symbol@1024.png
+
+<span class="c"># Inkscape — DPI 지정 export</span>
+inkscape logo-full.svg --export-type=png --export-dpi=300 \
+  --export-filename=logo-full@300.png</pre>
+    </div>
+
+    <div class="card">
+      <b style="color:var(--ink)">방법 D · 온라인 변환</b>
+      <p style="color:var(--sub);font-size:14px;margin-top:6px">설치가 어려우면
+        <a href="https://cloudconvert.com/svg-to-png" target="_blank" rel="noopener">CloudConvert</a> /
+        <a href="https://svgtopng.com" target="_blank" rel="noopener">svgtopng.com</a> 에 업로드.
+        단, 로고는 외부 업로드를 피하는 게 안전하니 가능하면 A~C를 쓰세요.</p>
+    </div>
+
+    <div class="callout">
+      <b>파비콘 ·</b> 모던 브라우저는 SVG 파비콘을 그대로 지원합니다.
+      <code class="inline">&lt;link rel="icon" type="image/svg+xml" href="assets/favicon.svg"&gt;</code>
+      구형 호환이 필요하면 위 방법으로 32×32, 180×180(apple-touch) PNG를 함께 생성하세요.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    O&amp;J Company — Brand System v1 · 모든 로고 자산은 <code class="inline">products/brand/</code> 에 SVG로 보관.
+    <br>· <a href="./index.html">← 플레이북</a>
+  </div>
+</footer>
+
+</body>
+</html>
