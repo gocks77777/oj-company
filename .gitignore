@@ -1,0 +1,21 @@
+# 민감정보 / 고객 데이터
+clients/**/private/
+*.key
+*.pem
+.env
+.env.*
+
+# 자격증명 / API
+secrets/
+credentials*.json
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 임시
+*.tmp
+*.log
+node_modules/

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O&J 컴퍼니 — 첫 수익 세팅 플레이북</title>
+<style>
+  :root{
+    --bg:#0b0d12; --panel:#13161f; --panel2:#191d29; --line:#262b3a;
+    --ink:#e8ecf5; --sub:#9aa3b8; --mut:#6b7488;
+    --acc:#6ea8fe; --acc2:#7c5cff; --gold:#ffc24b; --green:#3ddc97; --red:#ff6b6b;
+    --grad:linear-gradient(135deg,#7c5cff,#6ea8fe);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  a{color:var(--acc);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* HERO */
+  header.hero{padding:90px 0 70px;background:
+    radial-gradient(1200px 500px at 80% -10%,rgba(124,92,255,.25),transparent),
+    radial-gradient(900px 400px at 0% 10%,rgba(110,168,254,.18),transparent);
+    border-bottom:1px solid var(--line)}
+  .badge{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--acc);
+    border:1px solid var(--line);background:var(--panel);padding:6px 14px;border-radius:99px;margin-bottom:24px}
+  .hero h1{font-size:54px;line-height:1.1;font-weight:800;letter-spacing:-.02em}
+  .hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:19px;color:var(--sub);margin-top:18px;max-width:720px}
+  .hero .meta{margin-top:26px;color:var(--mut);font-size:14px}
+  .kpis{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .kpi{flex:1;min-width:180px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .kpi .n{font-size:30px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .kpi .l{font-size:13px;color:var(--sub);margin-top:4px}
+
+  section{padding:58px 0;border-bottom:1px solid var(--line)}
+  .eyebrow{color:var(--acc2);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+  h2{font-size:32px;font-weight:800;margin:8px 0 8px;letter-spacing:-.01em}
+  h2 .num{color:var(--mut);font-weight:700;margin-right:12px}
+  .section-sub{color:var(--sub);font-size:16px;max-width:760px;margin-bottom:30px}
+  h3{font-size:20px;font-weight:700;margin:26px 0 12px}
+
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:820px){.g2,.g3{grid-template-columns:1fr}.hero h1{font-size:38px}}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .card.hl{border-color:var(--acc2);box-shadow:0 0 0 1px rgba(124,92,255,.25),0 18px 50px rgba(124,92,255,.12)}
+  .card h4{font-size:18px;font-weight:700;display:flex;align-items:center;gap:10px}
+  .card .tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--panel2);color:var(--sub);border:1px solid var(--line)}
+  .card p{color:var(--sub);font-size:14.5px;margin-top:8px}
+  .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--grad);font-size:18px;flex:none}
+
+  ul.clean{list-style:none;margin-top:12px}
+  ul.clean li{position:relative;padding-left:26px;margin:9px 0;color:var(--sub);font-size:14.5px}
+  ul.clean li::before{content:"→";position:absolute;left:0;color:var(--acc);font-weight:700}
+  ul.check li::before{content:"✓";color:var(--green)}
+
+  /* LADDER */
+  .ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:820px){.ladder{grid-template-columns:1fr}}
+  .rung{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+  .rung .step{font-size:12px;font-weight:700;color:var(--gold)}
+  .rung h4{font-size:19px;margin:6px 0}
+  .rung .price{font-size:15px;color:var(--green);font-weight:700;margin-top:10px}
+  .rung::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:var(--grad)}
+
+  /* PRICING */
+  table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;background:var(--panel);border-radius:14px;overflow:hidden}
+  th,td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:var(--panel2);color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.03em}
+  td{color:var(--sub)}
+  td strong{color:var(--ink)}
+  tr:last-child td{border-bottom:none}
+  .money{color:var(--green);font-weight:700;white-space:nowrap}
+
+  /* TIMELINE */
+  .tl{position:relative;margin-top:20px;padding-left:30px}
+  .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--acc2),var(--acc))}
+  .tl .item{position:relative;margin-bottom:22px}
+  .tl .item::before{content:"";position:absolute;left:-29px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--acc)}
+  .tl .wk{font-size:12px;font-weight:700;color:var(--acc);letter-spacing:.05em}
+  .tl .item h4{font-size:17px;margin:3px 0 4px}
+  .tl .item p{color:var(--sub);font-size:14.5px}
+
+  /* CALLOUT */
+  .callout{border-radius:14px;padding:18px 20px;margin:18px 0;font-size:14.5px;border:1px solid}
+  .callout.do{background:rgba(61,220,151,.07);border-color:rgba(61,220,151,.35)}
+  .callout.warn{background:rgba(255,194,75,.07);border-color:rgba(255,194,75,.35)}
+  .callout.key{background:rgba(124,92,255,.08);border-color:rgba(124,92,255,.4)}
+  .callout b{color:var(--ink)}
+  .callout .ttl{font-weight:800;display:block;margin-bottom:6px}
+
+  /* SCRIPT BOX */
+  .script{background:#0e1117;border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:10px;
+    padding:16px 18px;margin:12px 0;font-size:14px;color:var(--sub);white-space:pre-wrap;line-height:1.75}
+  .script .who{color:var(--gold);font-weight:700}
+
+  .pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:99px;background:var(--panel2);border:1px solid var(--line);color:var(--sub);margin:3px 4px 3px 0}
+
+  footer{padding:50px 0 70px;color:var(--mut);font-size:13px}
+  .src{font-size:12.5px;color:var(--mut);margin-top:10px}
+  .src a{color:var(--sub)}
+
+  .toc{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+  .toc a{font-size:13px;padding:7px 13px;border:1px solid var(--line);border-radius:99px;color:var(--sub);background:var(--panel)}
+  .toc a:hover{border-color:var(--acc);color:var(--ink);text-decoration:none}
+  .num-badge{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--grad);font-size:13px;font-weight:800;color:#fff;margin-right:6px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">O&amp;J COMPANY · 첫 수익 세팅 플레이북 v1.0</span>
+    <h1>AI로 <span class="g">모든 걸 세팅</span>해주는<br>2인 외주 스튜디오, O&amp;J</h1>
+    <p class="lead">오정빈 &amp; 정해찬. 로고송부터 업무 자동화, CEO 세컨드 브레인까지 —
+      "AI로 회사를 통째로 세팅해주는" 부티크 외주. 이 문서는 <b>30일 안에 첫 입금</b>을 만들기 위한,
+      실제 검증된 사례를 그대로 베낄 수 있는 실행 매뉴얼입니다.</p>
+    <div class="meta">작성 기준: 2026-06 · 실제 시장가 &amp; 검증 사례 기반 · 한 화면씩 따라 하면 됨</div>
+
+    <div class="kpis">
+      <div class="kpi"><div class="n">30일</div><div class="l">첫 입금까지 목표 기간</div></div>
+      <div class="kpi"><div class="n">3만~200만원</div><div class="l">상품별 한국 시장 단가대</div></div>
+      <div class="kpi"><div class="n">세팅비+월</div><div class="l">정석 과금 구조 (하이브리드)</div></div>
+      <div class="kpi"><div class="n">1건 무료</div><div class="l">첫 케이스 스터디 = 최강 영업무기</div></div>
+    </div>
+
+    <div class="toc">
+      <a href="#strategy">핵심 전략</a>
+      <a href="#ladder">수익 사다리</a>
+      <a href="#products">4대 상품 &amp; 가격</a>
+      <a href="#plan30">30일 플랜</a>
+      <a href="#clients">첫 고객 확보</a>
+      <a href="#stack">도구 세팅</a>
+      <a href="#scripts">영업 스크립트</a>
+      <a href="#brain">세컨드 브레인 구축법</a>
+      <a href="#cases">베스트 사례</a>
+      <a href="#checklist">실행 체크리스트</a>
+    </div>
+  </div>
+</header>
+
+<!-- 1. STRATEGY -->
+<section id="strategy">
+  <div class="wrap">
+    <div class="eyebrow">The One Idea</div>
+    <h2><span class="num">01</span>가장 빠른 첫 수익의 공식</h2>
+    <p class="section-sub">모든 검증 사례가 같은 말을 합니다. "처음부터 팔지 말고, 결과를 먼저 보여줘라."
+      AI 외주에서 첫 수익을 가장 빠르게 내는 4단계 공식은 다음과 같습니다.</p>
+
+    <div class="grid g2">
+      <div class="card hl">
+        <h4><span class="ico">🎯</span> 결과 먼저 (Results-First)</h4>
+        <p>주변 사장님/지인 사업체 <b>딱 1곳</b>을 골라 자동화 1개를 <b>무료로 즉시</b> 만들어 줍니다.
+          이걸로 ① 실제 작동 케이스 ② 후기 ③ 추천 고객 ④ 실전 경험을 한 번에 확보합니다.
+          영업 멘트가 아니라 "이미 돌아가는 결과물"이 다음 고객을 데려옵니다.</p>
+      </div>
+      <div class="card">
+        <h4><span class="ico">📦</span> 상품화 (Productize)</h4>
+        <p>매번 새로 만들지 말고, <b>고정 범위 · 고정 가격</b>의 패키지로 묶습니다.
+          한 번 만들어 문서화해두면 다음 고객엔 며칠 만에 복제 배포 → 마진 60~70%, 납기 단축.</p>
+      </div>
+      <div class="card">
+        <h4><span class="ico">💸</span> 하이브리드 과금</h4>
+        <p>정석은 <b>세팅비(1회) + 월 리테이너</b>. 세팅비로 초기 작업비를 회수하고,
+          돌아가기 시작하면 "이미 돈 벌어주는 걸 계속 관리"라서 월 구독 전환이 쉽습니다.</p>
+      </div>
+      <div class="card">
+        <h4><span class="ico">🔁</span> ROI가 자명한 상품으로 진입</h4>
+        <p>"미수신 콜 자동 문자회신" 같은 상품이 강력한 이유 = <b>효과가 숫자로 즉시 보임</b>.
+          놓친 전화 2건만 살려도 월 비용 회수 → 거절이 거의 안 나옵니다.</p>
+      </div>
+    </div>
+
+    <div class="callout key">
+      <span class="ttl">💡 O&amp;J만의 차별점 (포지셔닝)</span>
+      대부분의 AI 외주는 "챗봇 하나" 단발로 끝납니다. O&amp;J는 <b>"AI로 회사를 통째로 세팅"</b>이라는
+      더 큰 약속을 팝니다 — 로고송(브랜드) → 업무 자동화(운영) → CEO 세컨드 브레인(의사결정).
+      <b>2인 부티크 + 한국어 밀착 + 빠른 납기</b>가 무기입니다. 단발 외주가 아니라 "AI 도입 파트너"로 들어가세요.
+    </div>
+  </div>
+</section>
+
+<!-- 2. LADDER -->
+<section id="ladder">
+  <div class="wrap">
+    <div class="eyebrow">Revenue Ladder</div>
+    <h2><span class="num">02</span>수익 사다리 — 현금부터, 구독까지</h2>
+    <p class="section-sub">처음엔 빠른 현금이 필요하고, 나중엔 안정적 구독이 필요합니다.
+      아래 3단을 순서대로 올라가세요. 1단으로 현금 흐름과 자신감을 만들고, 3단에서 회사가 됩니다.</p>
+
+    <div class="ladder">
+      <div class="rung">
+        <div class="step">RUNG 1 · 이번 주</div>
+        <h4>⚡ 빠른 현금 상품</h4>
+        <p style="color:var(--sub);font-size:14px;margin-top:8px">진입장벽 0, 즉시 판매. Suno 로고송 · 간단 카톡/디스코드 봇.
+          크몽·숨고에 바로 올려 첫 입금을 만듭니다.</p>
+        <div class="price">건당 3만 ~ 30만원 · 당일~3일 납기</div>
+      </div>
+      <div class="rung">
+        <div class="step">RUNG 2 · 첫 달</div>
+        <h4>🛠 핵심 상품</h4>
+        <p style="color:var(--sub);font-size:14px;margin-top:8px">업무 자동화 워크플로우(n8n/Make) 구축.
+          세팅비로 목돈, 효과는 숫자로 증명. 케이스 스터디의 핵심.</p>
+        <div class="price">세팅 80만 ~ 300만원</div>
+      </div>
+      <div class="rung">
+        <div class="step">RUNG 3 · 2~3개월차</div>
+        <h4>🧠 리테이너 / 세컨드 브레인</h4>
+        <p style="color:var(--sub);font-size:14px;margin-top:8px">CEO 전용 LLM 위키 + 디스코드 AI 팀 운영·관리.
+          매달 들어오는 구독 매출 = 진짜 회사.</p>
+        <div class="price">월 30만 ~ 150만원 / 고객</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PRODUCTS -->
+<section id="products">
+  <div class="wrap">
+    <div class="eyebrow">Product Menu</div>
+    <h2><span class="num">03</span>O&amp;J 4대 상품 &amp; 가격표</h2>
+    <p class="section-sub">바로 팔 수 있는 4개 상품. 가격은 한국 시장가(크몽 등) + 글로벌 AI 외주 단가를 섞은 현실 권장가입니다.
+      처음엔 낮게 시작해 후기 쌓이면 올리세요.</p>
+
+    <!-- product 1 -->
+    <h3>🎵 상품 A — AI 로고송 / 브랜드 사운드 (Suno)</h3>
+    <table>
+      <tr><th>패키지</th><th>포함</th><th>권장가</th><th>납기</th></tr>
+      <tr><td><strong>베이직</strong></td><td>15초 로고송 1곡, 2회 수정</td><td class="money">5만원</td><td>당일~1일</td></tr>
+      <tr><td><strong>스탠다드</strong></td><td>30~60초 풀 CM송 + 보컬/MR 분리(stem), 가사 커스텀</td><td class="money">15만원</td><td>2일</td></tr>
+      <tr><td><strong>프리미엄</strong></td><td>브랜드 사운드 패키지(로고송+숏폼용 3종+매장BGM)</td><td class="money">35만원~</td><td>3~5일</td></tr>
+    </table>
+    <div class="callout warn">
+      <span class="ttl">⚠️ 상업적 이용 = Suno 유료 구독 필수</span>
+      클라이언트에게 파는 음악은 <b>Suno Pro($10/월·월 500곡, 상업권리 포함)</b> 이상에서 만들어야 합니다.
+      무료 플랜 결과물은 상업적 판매 권리가 없습니다. Premier($30/월)는 스튜디오/멀티트랙/스템 추출까지.
+      → 구독 1개($10)로 무제한급 생산 → <b>마진 거의 100%</b>.
+    </div>
+
+    <!-- product 2 -->
+    <h3>🤖 상품 B — 업무 자동화 워크플로우 (n8n / Make)</h3>
+    <table>
+      <tr><th>패키지</th><th>예시 자동화</th><th>권장가</th></tr>
+      <tr><td><strong>단일 자동화</strong></td><td>문의 → 자동분류 → 시트기록 → 카톡알림 / 인보이스 자동발행</td><td class="money">세팅 50만~120만</td></tr>
+      <tr><td><strong>업무 패키지</strong></td><td>3~5개 워크플로우 묶음 (리드관리+CS+리포트 자동화)</td><td class="money">세팅 150만~300만</td></tr>
+      <tr><td><strong>+ 월 관리</strong></td><td>모니터링·수정·개선 (오류대응 포함)</td><td class="money">월 30만~80만</td></tr>
+    </table>
+    <p class="src">시장 참고: 크몽 업무 자동화 개발 평균 30만~200만원대 · n8n은 Notion/Slack/시트/GPT 등 500+ 연동, 자체호스팅 시 라이선스 0원.</p>
+
+    <!-- product 3 -->
+    <h3>🧠 상품 C — CEO 세컨드 브레인 / LLM 위키 구축</h3>
+    <table>
+      <tr><th>패키지</th><th>포함</th><th>권장가</th></tr>
+      <tr><td><strong>구축</strong></td><td>Claude Code + Obsidian/마크다운 위키 설계, 지식 인제스트, 검색·요약 세팅, 사용법 코칭</td><td class="money">세팅 80만~200만</td></tr>
+      <tr><td><strong>디스코드 AI팀</strong></td><td>디스코드에 역할별 Claude 봇 다중 연결("1인 회사"), 명령어·자동화 구성</td><td class="money">세팅 120만~300만</td></tr>
+      <tr><td><strong>운영 리테이너</strong></td><td>지식 갱신, 프롬프트·스킬 개선, 월간 점검</td><td class="money">월 50만~150만</td></tr>
+    </table>
+    <p class="src">→ 구체적 구축 방법은 아래 <a href="#brain">섹션 08</a> 참고. 이게 O&amp;J의 시그니처 상품이자 최고 마진 구독원.</p>
+
+    <!-- product 4 -->
+    <h3>💬 상품 D — 간단 봇 / 빠른 현금 (진입용)</h3>
+    <table>
+      <tr><th>상품</th><th>설명</th><th>권장가</th></tr>
+      <tr><td><strong>카톡/디스코드 봇</strong></td><td>자동응답·커스텀 명령어·간단 AI 연동</td><td class="money">3만~15만</td></tr>
+      <tr><td><strong>FAQ 챗봇</strong></td><td>GPT/Claude 기반 단일 시나리오 상담봇</td><td class="money">15만~30만</td></tr>
+      <tr><td><strong>고급 챗봇</strong></td><td>데이터 연동 + 프롬프트 커스텀 + 대시보드</td><td class="money">40만~60만+</td></tr>
+    </table>
+    <p class="src">시장 참고(크몽): 봇 제작 1만~15만 · AI/GPT 챗봇 평균 30만(최고 60만+).</p>
+  </div>
+</section>
+
+<!-- 4. 30 DAY PLAN -->
+<section id="plan30">
+  <div class="wrap">
+    <div class="eyebrow">Execution</div>
+    <h2><span class="num">04</span>첫 입금까지 — 30일 실행 플랜</h2>
+    <p class="section-sub">ADHD 친화 버전: 매주 "딱 한 가지 큰 목표"만. 나머지는 그 목표를 위한 잔작업입니다.</p>
+
+    <div class="tl">
+      <div class="item">
+        <div class="wk">WEEK 1 — 간판 세우고 빠른 현금</div>
+        <h4>존재를 만들고, 첫 5만원을 번다</h4>
+        <p>① 상호/로고/한 줄 소개 확정(O&amp;J = "AI로 회사를 세팅") ② Suno Pro 구독($10) ③ 크몽·숨고에 <b>로고송·챗봇 상품 등록</b>
+          ④ 본인들 회사 로고송을 샘플로 제작해 포트폴리오 3개 업로드. <b>목표: 빠른 현금 상품 1건 판매.</b></p>
+      </div>
+      <div class="item">
+        <div class="wk">WEEK 2 — 무료 케이스 스터디 1건</div>
+        <h4>지인 사업체에 자동화 1개를 공짜로 박는다</h4>
+        <p>아는 사장님(카페·학원·병원·쇼핑몰 등) 1곳 선정 → "놓친 문의 자동회신" 또는 "문의→시트→알림" 자동화를 <b>무료로 구축</b>.
+          작동 영상 + Before/After 숫자 + 사장님 한 줄 후기 확보. <b>이게 100만원짜리 영업자산입니다.</b></p>
+      </div>
+      <div class="item">
+        <div class="wk">WEEK 3 — 유료 1호 고객</div>
+        <h4>케이스로 같은 업종 5곳에 제안한다</h4>
+        <p>케이스 스터디로 동일 업종(같은 문제 = 같은 해결책) 타깃. 아래 <a href="#scripts">DM/콜 스크립트</a>로 하루 5~10곳 접촉.
+          "이미 ○○사장님 가게에 깔아드린 것" 그대로 제안 → 세팅비 80만~150만 유료 계약 1건.</p>
+      </div>
+      <div class="item">
+        <div class="wk">WEEK 4 — 구독으로 전환</div>
+        <h4>리테이너 + 세컨드 브레인 업셀</h4>
+        <p>유료 고객에게 "월 관리" 제안 → 월 매출 시작. 동시에 가장 적극적인 고객에게
+          <b>CEO 세컨드 브레인</b> 데모. 30일 끝 = 현금 + 첫 유료 + 첫 구독 = 회사 가동.</p>
+      </div>
+    </div>
+
+    <div class="callout do">
+      <span class="ttl">✅ 지금 당장 (오늘) 할 3가지</span>
+      1) 크몽 판매자 가입 + 로고송 상품 1개 등록 &nbsp; 2) Suno Pro 결제 후 O&amp;J 로고송 샘플 1곡 제작 &nbsp;
+      3) 무료 케이스 줄 지인 사업체 후보 3곳 이름 적기. — 이 3개만 오늘 끝내면 30일이 굴러갑니다.
+    </div>
+  </div>
+</section>
+
+<!-- 5. CLIENTS -->
+<section id="clients">
+  <div class="wrap">
+    <div class="eyebrow">Get Clients</div>
+    <h2><span class="num">05</span>첫 고객을 데려오는 5가지 채널</h2>
+    <div class="grid g2">
+      <div class="card"><h4><span class="num-badge">1</span>무료 케이스 → 추천</h4>
+        <p>첫 고객은 "판매"가 아니라 "공짜 결과물"에서 나옵니다. 만족한 사장님은 같은 업종 사장님을 소개합니다. 추천이 가장 싸고 빠른 채널.</p></div>
+      <div class="card"><h4><span class="num-badge">2</span>크몽 · 숨고 등록</h4>
+        <p>이미 "AI 외주"를 찾는 수요가 모인 곳. 로고송·챗봇·자동화 상품을 올려두면 인바운드 문의가 옵니다. 후기 1개가 다음 10개를 부릅니다.</p></div>
+      <div class="card"><h4><span class="num-badge">3</span>불만글에 "해결책"으로 답</h4>
+        <p>커뮤니티/SNS에서 "전화 놓쳐서 손님 날렸다" 같은 글에 → "비슷한 문제를 ○○에 이렇게 풀어드렸어요, 보여드릴까요?" 영업 아닌 도움으로 접근.</p></div>
+      <div class="card"><h4><span class="num-badge">4</span>니치 한정 콜드 DM</h4>
+        <p>업종 1개로 좁혀(예: 필라테스 학원) 케이스를 들고 하루 5~10곳 접촉. 같은 문제·같은 멘트 → 전환율 급상승. 넓게 뿌리지 말 것.</p></div>
+      <div class="card"><h4><span class="num-badge">5</span>본인 회사를 데모로</h4>
+        <p>O&amp;J 자체를 디스코드 AI팀 + 세컨드 브레인으로 운영하고, 그 화면을 콘텐츠/포트폴리오로. "우리가 직접 쓰는 시스템"이 가장 강한 증거.</p></div>
+      <div class="card hl"><h4>🎯 니치를 먼저 정하라</h4>
+        <p>"모두에게 모든 걸"은 0명에게 파는 것. <b>한 업종 + 한 문제</b>로 시작 → 케이스 복제 → 그 다음 확장. 추천 진입 니치: <span class="pill">동네 학원/공방</span><span class="pill">병의원</span><span class="pill">소형 쇼핑몰</span><span class="pill">1인 대표 사무소</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="eyebrow">Setup</div>
+    <h2><span class="num">06</span>O&amp;J 도구 스택 &amp; 초기 비용</h2>
+    <p class="section-sub">전부 합쳐 월 10만원 안쪽으로 시작 가능. 첫 매출 나면 그때 업그레이드하세요.</p>
+    <table>
+      <tr><th>용도</th><th>도구</th><th>비용</th><th>비고</th></tr>
+      <tr><td>로고송/음악</td><td><strong>Suno Pro</strong></td><td class="money">$10/월</td><td>상업권리 포함·월 500곡. 사실상 무제한 생산</td></tr>
+      <tr><td>AI 두뇌 / 위키</td><td><strong>Claude (Pro/Code)</strong></td><td class="money">$20~/월</td><td>세컨드 브레인·자동화 핵심 엔진</td></tr>
+      <tr><td>워크플로우 자동화</td><td><strong>n8n</strong>(자체호스팅) / Make</td><td class="money">$0~$24/월</td><td>n8n 자체호스팅=라이선스0 / Make 무료 1,000회</td></tr>
+      <tr><td>지식 저장</td><td><strong>Obsidian</strong> + 마크다운</td><td class="money">무료</td><td>LLM 위키의 그릇. Git으로 버전관리</td></tr>
+      <tr><td>봇 호스팅</td><td>디스코드 + 봇 서버(VPS/로컬)</td><td class="money">$0~$6/월</td><td>다중 Claude 봇 연결</td></tr>
+      <tr><td>판매 채널</td><td>크몽 / 숨고</td><td class="money">수수료만</td><td>인바운드 수요. 등록 무료</td></tr>
+      <tr><td>계약/입금</td><td>전자계약 + 사업자 통장</td><td class="money">무료~소액</td><td>공동대표/지분, 세금계산서 합의 먼저</td></tr>
+    </table>
+    <div class="callout warn">
+      <span class="ttl">⚠️ 2인 회사 — 시작 전 합의 3가지</span>
+      ① <b>지분/수익 배분</b> (오정빈:정해찬 = ?:?) ② <b>역할 분담</b> (예: 정해찬=기술/구축, 오정빈=영업/디자인)
+      ③ <b>비용 분담 &amp; 정산 주기</b>. 친한 사이일수록 문서로 1장 적어두세요.
+    </div>
+  </div>
+</section>
+
+<!-- 7. SCRIPTS -->
+<section id="scripts">
+  <div class="wrap">
+    <div class="eyebrow">Sales Scripts</div>
+    <h2><span class="num">07</span>그대로 복붙하는 영업 스크립트</h2>
+
+    <h3>① 무료 케이스 제안 (지인/동네 사장님)</h3>
+    <div class="script"><span class="who">[O&amp;J]</span> 사장님 안녕하세요! 저희가 AI로 가게 업무 자동화해주는 일 시작했는데요,
+연습 겸 <b>딱 한 가지를 무료로</b> 만들어드리고 싶어요.
+예를 들어 바쁠 때 놓친 전화·문의에 자동으로 "곧 연락드릴게요" 문자가 나가게 하는 거요.
+비용 0원, 마음에 안 들면 그냥 끄시면 됩니다. 다음 주에 30분만 보여드려도 될까요?</div>
+
+    <h3>② 케이스 → 유료 전환 (같은 업종 콜드 DM)</h3>
+    <div class="script"><span class="who">[O&amp;J]</span> 대표님, 같은 ○○업종 △△님 가게에 '놓친 문의 자동응대' 시스템을 깔아드렸더니
+한 달에 문의 □건을 추가로 살리셨어요. (작동 영상 첨부)
+대표님 가게에도 똑같이 세팅 가능해서 보여드리려 연락드렸습니다.
+세팅 한 번이면 끝이고, 효과는 숫자로 바로 보여요. 짧게 통화 가능하실까요?</div>
+
+    <h3>③ 세컨드 브레인 업셀 (대표 직접)</h3>
+    <div class="script"><span class="who">[O&amp;J]</span> 대표님 머릿속에 있는 거래처·노하우·결정들, 지금은 다 흩어져 있죠.
+그걸 <b>AI가 기억하는 대표님 전용 두뇌</b>로 모아드릴 수 있어요.
+"작년 그 견적 얼마였지?" 물으면 바로 답하고, 디스코드에서 직원처럼 일하는 AI 팀도 붙습니다.
+저희가 직접 쓰는 시스템인데, 한 번 화면 보여드릴게요.</div>
+
+    <div class="callout do">
+      <span class="ttl">✅ 스크립트 3원칙</span>
+      1) <b>팔지 말고 보여줘라</b> (데모 &gt; 설명) &nbsp; 2) <b>효과를 숫자로</b> (놓친 문의 □건, 절약 □시간)
+      &nbsp; 3) <b>리스크 0 제안</b> (무료/환불/언제든 중단).
+    </div>
+  </div>
+</section>
+
+<!-- 8. SECOND BRAIN -->
+<section id="brain">
+  <div class="wrap">
+    <div class="eyebrow">Signature Build</div>
+    <h2><span class="num">08</span>세컨드 브레인 / LLM 위키 — 실제 구축법</h2>
+    <p class="section-sub">O&amp;J의 시그니처이자 최고 마진 구독 상품. Karpathy의 "LLM 위키" 패턴 기반 —
+      지식을 구조화된 마크다운으로 모아두고 Claude가 읽고 답하게 하는 방식입니다. 먼저 <b>O&amp;J 자신에게</b> 구축해 데모로 쓰세요.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4><span class="ico">📚</span> 1단계 — 지식 그릇</h4>
+        <ul class="clean">
+          <li>Obsidian(또는 폴더) + 마크다운 파일로 위키 생성</li>
+          <li>고객/제품/결정/SOP 등 주제별 .md로 구조화</li>
+          <li>Git으로 버전관리 (변경 추적 + 백업)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="ico">🤖</span> 2단계 — AI 두뇌 연결</h4>
+        <ul class="clean">
+          <li>Claude Code를 그 폴더에 물려 질문·요약·정리 수행</li>
+          <li>이메일·캘린더·시트 연동(읽기/쓰기)</li>
+          <li>주기 실행(heartbeat)으로 메일/일정 자동 점검</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="ico">💬</span> 3단계 — 디스코드 AI팀 ("1인 회사")</h4>
+        <ul class="clean">
+          <li>디스코드 채널에 역할별 Claude 봇 다중 연결</li>
+          <li>예: #리서치봇 #영업봇 #회계봇 — 각자 전문 프롬프트/스킬</li>
+          <li>음성·이미지 처리, 자식 에이전트 분기로 병렬 작업</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="ico">🔐</span> 4단계 — 온보딩 &amp; 보안</h4>
+        <ul class="clean">
+          <li>USER.md / SOUL.md에 대표 성향·말투·우선순위 기록</li>
+          <li>접근권한·민감정보 분리, 백업 체계</li>
+          <li>사용법 코칭 1회 + 월 점검(리테이너로 연결)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout key">
+      <span class="ttl">🧱 그대로 베낄 수 있는 오픈소스 스타터</span>
+      <b>coleam00/second-brain-starter</b> — Claude Code 스킬로 맞춤 PRD를 생성해 능동형 AI 비서를 구축.<br>
+      <b>charlie947/ai-second-brain</b> — ChatGPT/Claude 대화·리서치 기록에서 검색 가능한 세컨드 브레인 생성(Karpathy 스타일).<br>
+      → 이 두 레포의 구조를 그대로 따라 O&amp;J 데모를 만들고, 고객 버전으로 복제하면 됩니다.
+    </div>
+    <p class="src">참고: <a href="https://github.com/coleam00/second-brain-starter">second-brain-starter</a> ·
+      <a href="https://github.com/charlie947/ai-second-brain">ai-second-brain</a> ·
+      <a href="https://www.mindstudio.ai/blog/andrej-karpathy-llm-wiki-knowledge-base-claude-code">Karpathy LLM Wiki 가이드</a></p>
+  </div>
+</section>
+
+<!-- 9. CASES -->
+<section id="cases">
+  <div class="wrap">
+    <div class="eyebrow">Proof &amp; Sources</div>
+    <h2><span class="num">09</span>검증된 베스트 사례 (그대로 따라하기)</h2>
+    <div class="grid g2">
+      <div class="card"><h4>💰 28일에 $6,400</h4>
+        <p>AI 콜드 아웃리치 시스템으로 한 프리랜서가 28일 만에 6,400달러 수주. 핵심 = 니치 한정 + 결과 우선 접근.</p></div>
+      <div class="card"><h4>📞 미수신 콜 자동회신 = 월 $1,500</h4>
+        <p>가장 강력한 진입 상품. 주당 5콜 놓치는 사장이 2건만 살려도(건당 $350) 월 $2,800 추가 → $1,500 비용이 자명한 이득.</p></div>
+      <div class="card"><h4>🎵 Suno 젱글 월 $6,000 가설</h4>
+        <p>건당 $100, 전환 10% 가정 시 하루 $300·월 $6,000. Fiverr에선 곡당 $25~75에 판매되는 실거래 존재.</p></div>
+      <div class="card"><h4>🛠 무료 1건 → 케이스 → 영업</h4>
+        <p>"동네 사업체에 자동화 1개 무료 구축 → 케이스/후기/추천 확보"가 거의 모든 가이드의 공통 1번 전략.</p></div>
+    </div>
+    <p class="src" style="margin-top:18px">
+      출처:
+      <a href="https://vocal.media/lifehack/how-to-start-an-ai-automation-agency-in-2026-with-0-budget">$0 예산 AAA 시작 가이드</a> ·
+      <a href="https://growwstacks.com/blog/how-to-land-first-5-ai-agency-clients">첫 5고객 아웃리치 프레임워크</a> ·
+      <a href="https://arsum.com/blog/posts/ai-automation-agency-pricing/">AAA 가격(세팅비+리테이너)</a> ·
+      <a href="https://ciela.ai/blogs/ai-agency-pricing-guide-retainers-projects">AI 에이전시 가격 가이드</a> ·
+      <a href="https://suno.com/pricing">Suno 요금</a> ·
+      <a href="https://hookgenius.app/learn/make-money-suno-ai/">Suno 수익화</a> ·
+      <a href="https://kmong.com/prices/ai-gpt-%EC%B1%97%EB%B4%87">크몽 AI챗봇 단가</a> ·
+      <a href="https://kmong.com/prices/%EC%97%85%EB%AC%B4-%EC%9E%90%EB%8F%99%ED%99%94">크몽 자동화 단가</a> ·
+      <a href="https://n8n.io/pricing/">n8n 요금</a>
+    </p>
+  </div>
+</section>
+
+<!-- 10. CHECKLIST -->
+<section id="checklist">
+  <div class="wrap">
+    <div class="eyebrow">Do It Now</div>
+    <h2><span class="num">10</span>실행 체크리스트</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h4>🟢 이번 주 (셋업)</h4>
+        <ul class="clean check">
+          <li>O&amp;J 상호·로고·한 줄 소개 확정</li>
+          <li>2인 합의서 1장 (지분/역할/정산)</li>
+          <li>Suno Pro 결제 + 로고송 샘플 3개</li>
+          <li>크몽·숨고 판매자 등록 + 상품 2개</li>
+          <li>무료 케이스 줄 사업체 3곳 후보 선정</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>🔵 2~4주차 (수익)</h4>
+        <ul class="clean check">
+          <li>무료 케이스 1건 구축 + 후기·영상 확보</li>
+          <li>같은 업종 5~10곳 DM/콜 (스크립트)</li>
+          <li>유료 1호 계약 (세팅비 입금)</li>
+          <li>월 관리 리테이너 전환 제안</li>
+          <li>O&amp;J 자체 세컨드 브레인 데모 완성</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout key" style="margin-top:24px">
+      <span class="ttl">🧠 ADHD 모드 — 막히면 이것만</span>
+      많아 보이면 전부 무시하고 <b>"오늘의 1개"</b>만: ① Suno 로고송 1곡 만들어 크몽에 올리기.
+      그 1개가 끝나면 다음 1개가 보입니다. 완벽한 회사보다 <b>입금된 5만원</b>이 먼저예요.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>O&amp;J Company</b> — AI로 모든 걸 세팅해주는 2인 스튜디오 · 첫 수익 세팅 플레이북 v1.0<br>
+    오정빈 &amp; 정해찬 · 2026-06 작성 · 본 문서의 가격·사례는 작성 시점 시장 기준 권장값이며 실제 계약 시 조정하세요.
+  </div>
+</footer>
+
+</body>
+</html>
