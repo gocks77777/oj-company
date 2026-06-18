@@ -19,3 +19,6 @@ Thumbs.db
 *.tmp
 *.log
 node_modules/
+
+# OMC 툴링 상태
+.omc/
