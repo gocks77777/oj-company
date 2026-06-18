@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O&J 포트폴리오 — 실제 납품 케이스</title>
+<style>
+  :root{--bg:#0b0d12;--panel:#13161f;--panel2:#191d29;--line:#262b3a;--ink:#e8ecf5;--sub:#9aa3b8;--mut:#6b7488;
+    --acc:#6ea8fe;--acc2:#7c5cff;--gold:#ffc24b;--green:#3ddc97;--grad:linear-gradient(135deg,#7c5cff,#6ea8fe)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+  a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+  header{padding:70px 0 50px;border-bottom:1px solid var(--line);
+    background:radial-gradient(900px 400px at 80% -10%,rgba(124,92,255,.22),transparent)}
+  .badge{display:inline-block;font-size:12px;letter-spacing:.12em;color:var(--acc);border:1px solid var(--line);
+    background:var(--panel);padding:6px 14px;border-radius:99px;margin-bottom:20px}
+  h1{font-size:42px;line-height:1.15;font-weight:800;letter-spacing:-.02em}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--sub);font-size:17px;margin-top:14px;max-width:700px}
+  .back{margin-top:22px;display:inline-block;font-size:14px}
+
+  .case{padding:46px 0;border-bottom:1px solid var(--line)}
+  .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .tag{font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:99px;background:var(--panel2);
+    border:1px solid var(--line);color:var(--sub)}
+  .tag.live{color:var(--green);border-color:rgba(61,220,151,.4)}
+  .tag.dev{color:var(--gold);border-color:rgba(255,194,75,.4)}
+  .case h2{font-size:27px;font-weight:800;letter-spacing:-.01em}
+  .case .one{color:var(--sub);font-size:16px;margin-top:8px}
+
+  .flow{background:#0e1117;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:18px 0;
+    font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:13px;color:var(--sub);white-space:pre-wrap;line-height:1.75}
+  .flow b{color:var(--acc)}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;background:var(--panel);border-radius:12px;overflow:hidden}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:var(--panel2);font-weight:700;font-size:13px} td{color:var(--sub)} td strong{color:var(--ink)}
+  tr:last-child td{border-bottom:none}
+  .after{color:var(--green);font-weight:700}
+  .metrics{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0}
+  .m{flex:1;min-width:140px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .m .n{font-size:26px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .m .l{font-size:13px;color:var(--sub);margin-top:3px}
+  .stack{margin-top:6px}
+  .pill{display:inline-block;font-size:12px;padding:3px 11px;border-radius:99px;background:var(--panel2);
+    border:1px solid var(--line);color:var(--sub);margin:3px 4px 3px 0}
+  .insight{border-radius:12px;padding:16px 18px;margin-top:18px;font-size:14.5px;
+    background:rgba(124,92,255,.08);border:1px solid rgba(124,92,255,.4)}
+  .insight b{color:var(--ink)}
+  footer{padding:40px 0 70px;color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="badge">O&amp;J · PORTFOLIO · 실제 납품 케이스</span>
+    <h1>샘플이 아니라<br><span class="g">진짜 돌아가는 결과물</span>입니다</h1>
+    <p class="lead">O&amp;J는 이미 실사용 중인 자동화를 납품한 팀입니다. 아래는 가상의 데모가 아니라,
+      현장에서 매일 돌아가고 있는 실제 케이스입니다.</p>
+    <a class="back" href="./index.html">← 전체 플레이북</a> &nbsp;·&nbsp; <a class="back" href="./start.html">오늘 할 것 →</a>
+  </div>
+</header>
+
+<!-- CASE 1 -->
+<section class="case">
+  <div class="wrap">
+    <div class="tagrow">
+      <span class="tag live">● 실사용 중</span>
+      <span class="tag">업무 자동화</span>
+      <span class="tag">구축 1일</span>
+      <span class="tag">월 운영비 $0</span>
+    </div>
+    <h2>리드 기반 1인 사무소 — 문의 자동 알림 파이프라인</h2>
+    <p class="one">광고 문의를 놓쳐서 새던 매출을, "1분 내 응대"로 바꿨습니다. 1일 만에 구축, 현재까지 실사용 중.</p>
+
+    <div class="flow"><b>Meta Ads</b> 리드 폼 제출
+   ↓ 즉시 트리거
+<b>Make</b> — 데이터 파싱 + 포맷팅 (이름/연락처/문의내용)
+   ↓ 1초 이내
+<b>Telegram Bot</b> → 담당자 스마트폰 실시간 푸시
+   ↓
+현장에서도 <b>1분 이내 응대</b> ✓</div>
+
+    <div class="metrics">
+      <div class="m"><div class="n">3~6h → 1분</div><div class="l">리드 확인 시간</div></div>
+      <div class="m"><div class="n">0%</div><div class="l">리드 누락률</div></div>
+      <div class="m"><div class="n">$0/월</div><div class="l">운영 비용</div></div>
+      <div class="m"><div class="n">1일</div><div class="l">구축 기간</div></div>
+    </div>
+
+    <div class="stack">
+      <span class="pill">Meta Ads Lead Form</span><span class="pill">Make (노코드)</span>
+      <span class="pill">Telegram Bot API</span><span class="pill">중복 리드 필터링</span>
+    </div>
+
+    <div class="insight"><b>왜 단순 자동화가 아니라 AX(AI 전환)인가:</b>
+      "광고 → 수동 확인" 프로세스를 "광고 → 자동 알림 → 즉시 대응"으로 <b>재설계</b>.
+      1인 사업자가 인력 없이 <b>대기업 수준 응답속도</b>를 확보. 일회성이 아니라 실 비즈니스 인프라로 정착.
+      → 학원·인테리어·피부과 등 <b>리드 기반 SMB 전체에 복제 가능</b>.</div>
+  </div>
+</section>
+
+<!-- CASE 2 -->
+<section class="case">
+  <div class="wrap">
+    <div class="tagrow">
+      <span class="tag dev">● 개발 중 (MVP)</span>
+      <span class="tag">문서 자동화</span>
+      <span class="tag">Claude API</span>
+    </div>
+    <h2>컨설팅펌 문서 자동화 — 기업상태표 → 사업계획서 + PPT</h2>
+    <p class="one">컨설턴트의 반복 문서작업(반나절~하루)을 10분으로 줄이는 웹앱. 고숙련 인력을 핵심 업무로 돌립니다.</p>
+
+    <div class="flow">기업상태표 입력 폼 (웹앱)
+   ↓
+<b>Claude API</b> — 사업계획서 생성 (도메인 특화 프롬프트)
+   ↓
+<b>python-pptx</b> — PPT 자동 생성
+   ↓
+다운로드 / 검토 / 클라이언트 전달</div>
+
+    <div class="metrics">
+      <div class="m"><div class="n">4~8h → 10분</div><div class="l">문서 작성 시간(목표)</div></div>
+      <div class="m"><div class="n">2~3배</div><div class="l">컨설턴트 처리량</div></div>
+      <div class="m"><div class="n">표준화</div><div class="l">담당자 편차 제거</div></div>
+    </div>
+    <div class="stack">
+      <span class="pill">Claude API</span><span class="pill">FastAPI</span>
+      <span class="pill">python-pptx</span><span class="pill">SQLite</span>
+    </div>
+    <div class="insight"><b>확장성:</b> 업종별 템플릿 다양화 → IR/투자제안서 생성으로 확장 → 다른 컨설팅펌에 <b>SaaS로 판매 가능</b>.</div>
+  </div>
+</section>
+
+<!-- CASE 3 -->
+<section class="case">
+  <div class="wrap">
+    <div class="tagrow">
+      <span class="tag live">● 완료</span>
+      <span class="tag">AI 교육 운영</span>
+      <span class="tag">20명 · 5팀</span>
+    </div>
+    <h2>AI 도구 워크숍 운영 — 비개발자 20명, 배포율 100%</h2>
+    <p class="one">프로젝트 경험 0인 교육생 20명을 8주 만에 전원 실서비스 배포까지. 커리큘럼 설계·조율·성과측정.</p>
+    <div class="metrics">
+      <div class="m"><div class="n">100%</div><div class="l">배포 완주율</div></div>
+      <div class="m"><div class="n">8주</div><div class="l">0→실서비스</div></div>
+      <div class="m"><div class="n">5개</div><div class="l">배포 프로젝트</div></div>
+    </div>
+    <div class="insight"><b>O&J 강의/교육 상품의 근거:</b> 기업·기관 대상 AI 도입 교육을 설계·운영할 수 있는 검증된 역량.
+      "현업 진단 → 자동화 설계 → 교육·이관 → 지표 검증" 사이클을 반복 검증.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    O&amp;J Company · 실제 납품 케이스 ·
+    <a href="./index.html">플레이북</a> · <a href="./start.html">오늘 할 것</a><br>
+    <span style="color:var(--mut);font-size:12px">※ 클라이언트 식별정보·인용구는 서면 동의 후에만 공개. 현재는 업종 패턴 수준으로 익명 표기.</span>
+  </div>
+</footer>
+</body>
+</html>
